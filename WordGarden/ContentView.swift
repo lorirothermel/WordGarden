@@ -17,7 +17,7 @@ struct ContentView: View {
     @State private var lettersGuessed = ""
     @State private var currentWordIndex = 0
     @State private var guessedLetter = ""
-    @State private var guessesRemaining = 8
+    @State private var guessesRemaining = 10
     @State private var playAgainHidden = true
     @State private var playAgainButtonLabel = "Another Word?"
     @State private var audioPlayer: AVAudioPlayer!
@@ -27,8 +27,31 @@ struct ContentView: View {
     
     @FocusState private var textFieldIsFocused: Bool
     
-    private let wordsToGuess = ["SWIFT", "DOG", "CAT"]
-    private let maximumGuesses = 8
+    private let wordsToGuess = [ "GREENE",
+                                 "ROETHLISBERGER",
+                                 "HAM",
+                                 "WOODSON",
+                                 "LAMBERT",
+                                 "BLOUNT",
+                                 "POLAMALU",
+                                 "BRADSHAW",
+                                 "HARRIS",
+                                 "WARD",
+                                 "BETTIS",
+                                 "STALLWORTH",
+                                 "SWANN",
+                                 "WEBSTER",
+                                 "HARRISON",
+                                 "MILLER",
+                                 "DAWSON",
+                                 "BLEIER",
+                                 "SHELL",
+                                 "GREENWOOD",
+                                 "FANECA",
+                                 "LLOYD",
+                                 "HAMPTON"  ]
+    
+    private let maximumGuesses = 10
     
     
     var body: some View {
@@ -58,8 +81,7 @@ struct ContentView: View {
                 .padding()
             
             Spacer()
-            
-            //TODO: Switch to wordsToGuess[currentWord]
+                       
             Text(revealedWord)
                 .font(.title)
             
@@ -127,6 +149,9 @@ struct ContentView: View {
                 .scaledToFit()
                 .animation(.easeIn(duration: 0.7), value: imageName)
             
+            Text("Pittsburgh Steeler Greats")
+                .font(.title)
+                .foregroundColor(.red)
         }  // VStack
         .ignoresSafeArea(edges: .bottom)
         .onAppear() {
